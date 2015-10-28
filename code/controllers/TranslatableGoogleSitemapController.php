@@ -71,7 +71,7 @@ class TranslatableGoogleSitemapController extends GoogleSitemapController {
 				}
 			}
 		}
-		if (!empty($updatedItems)) {
+		if ($updatedItems->exists()) {
 			return array('Items' => $updatedItems);
 		} else {
 			return $sitemap;
