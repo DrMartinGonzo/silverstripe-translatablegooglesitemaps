@@ -6,12 +6,12 @@
 		<loc>$AbsoluteLink</loc>
 		<% if $LastEdited %><lastmod>$LastEdited.Format(c)</lastmod><% end_if %>
 		<% if $ChangeFrequency %><changefreq>$ChangeFrequency</changefreq><% end_if %>
-		<% if $GooglePriority %><priority>$GooglePriority</priority><% end_if %><% loop Alternatives %>
-		<xhtml:link 
+		<% if $GooglePriority %><priority>$GooglePriority</priority><% end_if %><% if $Alternatives %><% loop Alternatives %>
+		<xhtml:link
 			rel="alternate"
 			hreflang="$GoogleLocale"
-			href="$AbsoluteLink" 
-		/><% end_loop %>
+			href="<% if $locale_AbsoluteLink %>$locale_AbsoluteLink<% else %>$AbsoluteLink<% end_if %>"
+		/><% end_loop %><% end_if %>
 	</url>
 	<% end_loop %>
 	</urlset>
